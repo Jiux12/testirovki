@@ -46,11 +46,15 @@ class AuthWindow(QWidget):
         username = self.username_input.text()
         password = self.password_input.text()
 
-        if self.verify_user(username, password):
-            QMessageBox.information(self, "Успех", "Вы успешно вошли!")
-            self.switch_to_main()  # Переход на главную страницу
+        if username != "" and password != "":
+            if self.verify_user(username, password):
+                QMessageBox.information(self, "Успех", "Вы успешно вошли!")
+                self.switch_to_main()  # Переход на главную страницу
+            else:
+                QMessageBox.warning(self, "Ошибка", "Неверное имя пользователя или пароль.")
         else:
-            QMessageBox.warning(self, "Ошибка", "Неверное имя пользователя или пароль.")
+            QMessageBox.warning(self, "Ошибка", "Все поля должны быть заполнены.")
+            return
 
     def verify_user(self, username1, password1):
         server = 'WIN-FIKHFSKV01H\SQLEXPRESS'  

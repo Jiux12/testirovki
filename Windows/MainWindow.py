@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, "Ошибка", f"Отправленный текст пуст")
             return
 
-        self.chat_list.append(f"ИИ: {us_message}\n")
+        self.chat_list.append(f"Вы: {us_message}\n")
         # item = QListWidgetItem()
         # self.chat_list.addItem(item)
         
@@ -170,10 +170,10 @@ class MainWindow(QMainWindow):
         left_layout = QVBoxLayout()
         font1 = QFont("Arial", 16)
         font2 = QFont("Arial", 12)
-        text_nazv = QLabel("Чета проект 1")
+        text_nazv = QLabel("Проект 1")
         text_nazv.setFont(font1)
         left_layout.addWidget(text_nazv)
-        text_opis = QLabel("Чета описание проекта")
+        text_opis = QLabel("Описание проекта")
         text_opis.setFont(font2)
         left_layout.addWidget(text_opis)
 
@@ -182,7 +182,12 @@ class MainWindow(QMainWindow):
         text_promt.setContentsMargins(0,15,0,0)
         left_layout.addWidget(text_promt)
 
-        self.input_promt = QTextEdit()
+        self.input_promt = QTextEdit("""Формат вводных данных:\n
+        Параметр 1: \n
+        Параметр 2: \n
+        \n  
+        Продолжай вводные данные в таком же формате
+        """)
         self.input_promt.setFixedWidth(250)
         self.input_promt.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Maximum)
         left_layout.addWidget(self.input_promt)

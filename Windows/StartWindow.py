@@ -65,9 +65,9 @@ class StartWindow(QWidget):
 
         # Список проектов
         self.project_list = QListWidget()
-        item = QListWidgetItem("Проект 1")
+        item = QListWidgetItem("Проект 1\nОписание 1")
         item.setData(Qt.ItemDataRole.UserRole,"Описание 1")
-        item2 = QListWidgetItem("Проект 2")
+        item2 = QListWidgetItem("Проект 2\nОписание 2")
         item2.setData(Qt.ItemDataRole.UserRole,"Описание 2")
         self.project_list.addItem(item2)
         self.project_list.addItem(item)
